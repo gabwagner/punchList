@@ -65,7 +65,7 @@ End with an example of getting some data out of the system or using it for a lit
 	$("#element").punchList(options);
 	```
   
-  ## Options
+  ### Options
   ```
   options = {
   title: Title of the punch list,
