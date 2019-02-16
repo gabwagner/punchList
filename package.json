@@ -4,7 +4,9 @@
   "description": "Punch List for Tasks",
   "main": "dist/punchlist.js",
   "scripts": {
-    
+    "build": "npm run buildExample && npm run buildDist ",
+    "buildExample": "copyfiles -u 1 src/punchlist.js example/js && copyfiles -u 1 src/punchlist.css example/css",
+    "buildDist": "copyfiles -u 1 src/* dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.1",
@@ -21,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/gabwagner/punchList/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "copyfiles": "^2.1.0"
+  }
 }

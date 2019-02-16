@@ -1,48 +1,47 @@
-#punchlist-container * {
+.punchlist-container * {
   box-sizing:border-box;
 }
 
-#punchlist-container {
+.punchlist-container {
   font-family:helvetica neue,helvetica,arial,sans-serif;
   font-size:18px;
   line-height:18px;
+  border: 1px solid #e0e0e0;
+  background-color: #ebebeb;
+  min-width: 300px;
 }
 
-#punchlist-container h1 {
+.punchlist-title h1 {
   text-align:center;
-  padding:50px 0;
   font-size:30px;
-  margin:0;
+  margin:5px;
   font-weight:200;
   color:#454545;
 }
 
-#punchlist-container h1 .fa-check {
-  font-size:30px;
+.punchlist-title h1 .fa-check {
   margin-right:10px;
   color:#0eb0b7;
 }
 
 #punchlist-items-container {
-  width:500px;
-  margin:0 auto 50px auto;
-  padding:50px;
+  margin:0 auto 0 auto;
+  padding:15px;
   background:white;
   position:relative;
-  /*box-shadow*/
-  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
-     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
-          box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
-  /*border-radius*/
-  -webkit-border-radius:5px;
-     -moz-border-radius:5px;
-          border-radius:5px;
+  border: 1px solid #efefef;
+  background-color: #efefef;
+}
+
+#punchlist-items {
+  background-color: #ffffff;
 }
 
 .punchlist-item {
   display:flex;
   position:relative;
   border-bottom: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
 }
 
 .punchlist-item:hover .punchlist-item-action {
@@ -67,7 +66,8 @@
   text-align:center;
   color:#d8d8d8;
   opacity:0;
-  padding:10px 5px;    
+  padding: 5px;   
+  margin-right: 5px;
   height:37px;
   cursor: pointer;
 }
@@ -75,16 +75,16 @@
 .punchlist-item input[type="checkbox"]{
   display:none;
 }
+
 .punchlist-item-tags {
   display:flex;
   flex-wrap: wrap;
   position:relative;
-  border-bottom: 1px solid #ebebeb;
-  padding: 1px 1px 1px 36px;
+  margin-left:36px;
   font-size: 13px;
   color:grey;
   line-height: 24px;
-  border-bottom: 1px solid #ebebeb;  
+  background: #616161;
 }
 
 .punch-item-add .punchlist-item-tags {
@@ -93,11 +93,11 @@
 
 .punchlist-item-tag {
   border-radius: 5px;
-  background: #73AD21;
-  margin-left: 2px;
-  margin-top: 2px;
+  border: 1px solid #454545;
+  background: #FFFFFF;
+  margin:  2px;
   padding: 3px; 
-  color: #FFFFFF;
+  color: #454545;
 }
 
 .punchlist-comment-tag {
@@ -116,6 +116,8 @@
   height:37px;
   position:relative;
   cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;  
 }
 
 .punchlist-item-label-text:before {
@@ -158,10 +160,10 @@
 }
 
 :checked + .punchlist-item-label-text:before {
-/*box-shadow*/
--webkit-box-shadow:inset 0 0 0 2px #0eb0b7;
-   -moz-box-shadow:inset 0 0 0 2px #0eb0b7;
-        box-shadow:inset 0 0 0 2px #0eb0b7;
+  /*box-shadow*/
+  -webkit-box-shadow:inset 0 0 0 2px #0eb0b7;
+     -moz-box-shadow:inset 0 0 0 2px #0eb0b7;
+          box-shadow:inset 0 0 0 2px #0eb0b7;
 }
 
 :checked + .punchlist-item-label-text {
@@ -182,7 +184,7 @@
   color:#717171;
 }
 
-.comment {
+.punchlist-comment {
   display:block;
   position:relative;
   margin-left:36px;
@@ -192,16 +194,21 @@
   border-bottom: 1px solid #ebebeb;  
 }
 
-.comments.hidden .comment:not(:first-child) {
+.punchlist-comments.hidden .punchlist-comment:not(:first-child) {
   display:none;
 }
 
-.comment:nth-child(even) {
+.punchlist-comment:nth-child(even) {
   background: #EEE;
 }
-.comment:nth-child(odd) {
+.punchlist-comment:nth-child(odd) {
   background: #FFF;
 }
+
+.punchlist-comment-tag {
+  display:inline;
+}
+
 .comment-action {
   cursor:pointer;
 }
