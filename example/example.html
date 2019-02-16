@@ -9,11 +9,77 @@
   <body>
     <script>
     $( document ).ready(function() {
-      var options = { apiCall: "json/response.json"};
+      var jsonTransform = {
+        data: [
+        {
+          field: "id",
+          name: "id"
+        }],
+        item: "item",
+        checked: "index",
+        tags: [ 
+          { 
+            field:"project",
+            title:"Project",
+            convert: null,
+          },
+          {
+            field:"company",
+            title:"Company",
+            convert: null,
+          }, 
+          {
+            field: "user",
+            title: "User",
+            convert: null,
+          }, 
+          {
+            field:"datetime",
+            title:"Date",
+            convert: "date", 
+          }
+        ],
+        comments: { 
+          listField: "comments", 
+          field:"comment",
+          deletable: false,
+          tags: [
+            {
+              field: "user",
+              title: "User",
+              convert: null,
+            }, 
+            {
+              field:"datetime",
+              title:"Date",
+              convert: "date", 
+            }
+          ]
+        }
+      }
+      function onAdd(itemId, val) {
+        console.log(itemId + " - " + val);
+        // Can set values in $(#itemId).data('item') ... that will be send in the other calls
+        return true;
+      }
+      function onDelete(itemId, itemData) {
+        console.log(itemId + " - " + JSON.stringify(itemData));
+        return true;
+      }      
+      function onChecked(itemId, itemData, checked) {
+        console.log(itemId + " - " + JSON.stringify(itemData) + " - " + checked);
+        return true;
+      }
+      var options = { 
+        fillDataCall: "json/response.json",
+        fillDataTransform: jsonTransform,
+        addItemHandler: onAdd,
+        removeItemHandler: onDelete,
+        checkedItemHandler: onChecked,
+      };
       $('#punchlist-container').punchList(options);
     });
     </script>
-    <div id="punchlist-container">
-    </div>
+    <div id="punchlist-container"></div>
   </body>
 </html>
