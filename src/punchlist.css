@@ -9,6 +9,7 @@
   border: 1px solid #e0e0e0;
   background-color: #ebebeb;
   min-width: 300px;
+  border-radius: 5px;
 }
 
 .punchlist-title h1 {
@@ -31,10 +32,12 @@
   position:relative;
   border: 1px solid #efefef;
   background-color: #efefef;
+  border-radius: 5px;  
 }
 
 #punchlist-items {
   background-color: #ffffff;
+  border-radius: 5px;
 }
 
 .punchlist-item {
@@ -85,6 +88,7 @@
   color:grey;
   line-height: 24px;
   background: #616161;
+  border-radius: 5px;
 }
 
 .punch-item-add .punchlist-item-tags {
