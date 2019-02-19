@@ -121,6 +121,71 @@ The transformation information must be set in an object.
 ```
   See also: [working example](example/example.html) and [converted json](example/json/response.json)
   
+  ### Task Data 
+  
+  Data used in function ```drawItems(data)```.   
+  
+| Property | Description |
+| --- | --- |
+|task|Field for the task description| 
+|checked|boolean indicating if the task is done or not.|
+|data|An array of KeyValuePair. This information will be added as data inside the task items and will be sent when the task is deleted or it state is changed.|
+|tags|An array of KeyValuePair. This information will be shown under the task to provide more context of the task.|
+|comments|An array of comments that will be shown under the task.|
+
+#### Comments
+
+| Property | Description |
+| --- | --- |
+|comment|String with the comment.|
+|deletable|boolean declaring if the comment can be deleted. |
+|tags|An array of KeyValuePair. This information will be shown under the task to provide more context of the task.|
+                              
+####Example:
+    
+    ```javascript
+    var tasks = [ {
+        task:"Task Description",
+        checked:false,
+        data: [ {
+          name: 'id',
+          value: 'TaskUniqueIDonOthePlatform',
+          },
+          ...
+        ],
+        tags: [ {
+          name: 'User',
+          value: 'Boss',
+          },
+          {
+          name: 'Date',
+          value: 'Yesterday',
+          },
+          ...
+        ],        
+        comments: [ {
+          comment: 'This is my comment',
+          deletable: false,
+          tags: [ {
+          name: 'User',
+          value: 'Boss',
+          },
+          {
+          name: 'Date',
+          value: 'Yesterday',
+          },
+          ...
+          ] },
+        ...
+        ] ,
+        ...
+      },
+      ...
+      ];
+    ```
+  
+   See also: [working example](example/example_b.html)
+  
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
