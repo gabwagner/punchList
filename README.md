@@ -69,15 +69,16 @@ End with an example of getting some data out of the system or using it for a lit
   
   Options are used to configure the Punch List.
   Detailed Options to be send:
+  
 | Property | Description |
 | --- | --- |
 | .title | Title of the Punch List |
 | .width | Width of the container. If not set, will expand to the size of the parent |
 |  .fillDataCall | RestFULL API CALL. Response must be JSON |
 |  .fillDataTransform | JSON mapping to convert to standarize items. In case that .fillDataCall was used |
-|  .addItemHandler | Handler to be called one a item is added / addItemHandler(itemId, val) / itemId: is the unique id that can be used to return the dom of the object / val: is the task value the new item will have |
-|  .removeItemHandler | Handler to be called when an item is removed / removeItemHandler(itemId, itemData) / itemId: is the unique id that can be used to return the dom of the object / itemData: is the 'item' data $(#itemId).data('item') |
-|  .checkedItemHandler| Handler to be called when an item change is status / checkedItemHandler(itemId, itemData, checked) / itemId: is the unique id that can be used to return the dom of the object  / itemData: is the 'item' data $(#itemId).data('item') / checked: boolean. It tells if the item has been checked or unchecked |
+|  .addItemHandler | Handler to be called one a item is added <br> **Parameters** <br> **itemId**: is the unique id that can be used to return the dom of the object <br> **val**: is the task value the new item will have |
+|  .removeItemHandler | Handler to be called when an item is removed <br> **Parameters** <br> **itemId**: is the unique id that can be used to return the dom of the object <br> **itemData**: is the 'item' data `$(#itemId).data('item')` |
+|  .checkedItemHandler| Handler to be called when an item change is status <br> **Parameters** <br> **itemId**: is the unique id that can be used to return the dom of the object  <br> **itemData**: is the 'item' data `$(#itemId).data('item')` <br> **checked**: boolean. It tells if the item has been checked or unchecked |
   
 ```javascript
 var options = {
