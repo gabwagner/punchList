@@ -67,6 +67,60 @@ var options = {
 };
 ```
   See also: [working example](example/example.html)
+  
+  ### JSON Data Transform
+  
+In order to be able to use a json not using the format expected in the punch list, a transformation must be made.
+The transformation information must be set in an object.
+
+| Property | Description |
+| --- | --- |
+| .task | This is the userdata property where is the description of the task. |
+| .checked | This is the userdata property where is a boolean value that inform if the task is complete or not.<br>If not set all task will be in not complete state. |
+|  .data | This is an array of key value pair of field. This data will be added in each task item that is added.<br>This information is send when the task is deteled or change it's complete state.<br>This property is not required.<br>KeyValue Pair Properties:<br>name  ->  The key property that will be added in data.<br>field ->  The property field in the userdata that will be use as value. |
+|  .tags | This is an array of key value pair of field. This data will be shown under the task name to add extra information that could be need.<br>This property is not required.<br>KeyValue Pair Properties:<br>name    ->  The key property that will be added in data.<br>field   ->  The property field in the userdata that will be use as value.<br>convert ->  Conver the value in case that need. Current there is a unique "date".<br>"date": Convert from String to Date and return localeString of it. |
+|  .comments | This is an object property. It will contain comments of the task that are inside of the userdata.<br>This property is not required.<br>Object Properties:<br>listField : Property in userdata where the Arrays of Comments are.<br>field     : The property inside the array where the proper comment is.<br>deletable : Property informing if the comments in userdata can be deleted.<br>tags      : See tags. |
+
+  #### Example
+  
+```javascript
+      var jsonTransform = {
+        data: [
+        {
+          field: "id",
+          name: "id"
+        }],
+        task: "item",
+        checked: "index",
+        tags: [ 
+          { 
+            field:"project",
+            name:"Project",
+            convert: null,
+          }, 
+          {
+            field:"datetime",
+            name:"Date",
+            convert: "date", 
+          }
+        ],
+        comments: { 
+          listField: "comments", 
+          field:"comment",
+          deletable: false,
+          tags: [
+            {
+              field: "user",
+              name: "User",
+              convert: null,
+            }
+          ]
+        }
+      }   
+    };
+```
+  See also: [working example](example/example.html) and [converted json](example/json/response.json)
+  
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
