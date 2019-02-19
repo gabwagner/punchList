@@ -109,6 +109,10 @@
   color: #FFFFFF;
 }
 
+.punchlist-comment-tag:empty {
+  display:none;
+}
+
 .punchlist-item-label-text {
   display:inline-block;
   font-weight:200;
@@ -150,6 +154,10 @@
   height:36px;
   text-align:center;
   color: #d8d8d8;
+}
+
+.punchlist-item-comment-action-remove {
+  margin-left: 5px;
 }
 
 .punchlist-item-label-text:hover:before{
@@ -209,12 +217,12 @@
   display:inline;
 }
 
-.comment-action {
+.punchlist-item-comment-action-remove {
   cursor:pointer;
 }
 
 /* Add Item Comment */
-.add-item-comment{
+.punchlist-item-comment-action-add{
   padding-left:36px;
   font-size:14px;
   font-weight:200;
@@ -223,27 +231,27 @@
   cursor:pointer;
 }
 
-.add-item-comment{
+.punchlist-item-comment-action-add {
   color:#6bc569;
 }
 
-.add-item-comment{
+.punchlist-item-comment-action-add {
   font-size:14px;
 }
 /* Add Item */
-#add-item{
+#punchlist-item-action-add {
   padding:25px 0 0 0;
   font-size:14px;
   font-weight:200;
-  color:#d8d8d8;
+  color:#c0c0c0;
   display:inline-block;
   cursor:pointer;
 }
 
-#add-item:hover {
+#punchlist-item-action-add:hover {
   color:#6bc569;
 }
 
-#add-item .fa-plus{
+#punchlist-item-action-add .fa-plus{
   font-size:14px;
 }

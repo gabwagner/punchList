@@ -9,55 +9,68 @@
   <body>
     <script>
     $( document ).ready(function() {
-      var jsonTransform = {
-        data: [
-        {
-          field: "id",
-          name: "id"
-        }],
-        task: "item",
-        checked: "index",
-        tags: [ 
-          { 
-            field:"project",
-            name:"Project",
-            convert: null,
+      var tasks = [{
+        task:"Task Description",
+        checked:false,
+        data: [ {
+          name: 'id',
+          value: 'TaskUniqueIDonOthePlatform',
+          },
+        ],
+        tags: [ {
+          name: 'User',
+          value: 'Boss',
           },
           {
-            field:"company",
-            name:"Company",
-            convert: null,
-          }, 
-          {
-            field: "user",
-            name: "User",
-            convert: null,
-          }, 
-          {
-            field:"datetime",
-            name:"Date",
-            convert: "date", 
-          }
-        ],
-        comments: { 
-          listField: "comments", 
-          field:"comment",
+          name: 'Date',
+          value: 'Yesterday',
+          },
+        ],        
+        comments: [ {
+          comment: 'This is my comment',
           deletable: false,
-          tags: [
-            {
-              field: "user",
-              name: "User",
-              convert: null,
-            }, 
-            {
-              field:"datetime",
-              name:"Date",
-              convert: "date", 
-            }
-          ]
-        }
-      }
-      
+          tags: [ {
+          name: 'User',
+          value: 'Boss',
+          },
+          {
+          name: 'Date',
+          value: 'Yesterday',
+          },
+          ] },
+        ] ,
+      }, {
+        task:"Task 2",
+        checked:true,
+        data: [ {
+          name: 'id',
+          value: '2TaskUniqueIDonOthePlatform',
+          },
+        ],
+        tags: [ {
+          name: 'User',
+          value: 'Semi-Boss',
+          },
+          {
+          name: 'Date',
+          value: 'Yesterday2',
+          },
+        ],        
+        comments: [ {
+          comment: 'This is another comment',
+          deletable: false,
+          tags: [ {
+          name: 'User',
+          value: 'Semi-Boss',
+          },
+          {
+          name: 'Date',
+          value: 'Yesterday2',
+          },
+          ] },
+        ] ,
+      },
+      ];
       
       function onAdd(itemId, val) {
         console.log(itemId + " - " + val);
@@ -74,14 +87,12 @@
       }
       var options = {
         width: 600,
-        fillDataCall: "json/response.json",
-        fillDataTransform: jsonTransform,
         addItemHandler: onAdd,
         removeItemHandler: onDelete,
         checkedItemHandler: onChecked,
 
       };
-      $('#punchlist-container').punchList(options);
+      $('#punchlist-container').punchList(options).drawItems(tasks);
     });
     </script>
     <div id="punchlist-container"></div>
